@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./button.module.css"
 type PropsTypeB1={
     plus:any
     count:number
@@ -17,7 +18,7 @@ function Button1(props:PropsTypeB1) {
     }
     return (
         <div>
-            <button disabled={checkButton1()} onClick={props.plus}>Добавить 1</button>
+            <button className={s.button1} disabled={checkButton1()} onClick={props.plus}>Добавить 1</button>
         </div>
     );
 }
