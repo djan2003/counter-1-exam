@@ -15,6 +15,7 @@ function Display(props:PropsType) {
             return s.display2
         }
 
+
     }
     return (
         <div className={chancheCount()}>

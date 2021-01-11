@@ -2,9 +2,31 @@ import React, {useState} from 'react';
 import './App.css';
 import Display from "./components/display/display";
 import Button1 from "./components/button/Button";
-import Button2 from "./components/button2/button2";
+import Display2 from "./Display2/Display2";
 
 function App() {
+
+    let titleForButton1 = "plus one"
+    let titleForButton2 = "reset"
+    let checkButton1 = () => {
+        let check = count;
+        if (check < 5) {
+            return false
+        }
+        if (check >= 5) {
+            return true
+        }
+        return false
+    }
+    let checkButton2 = () => {
+        let check2 = count;
+        if (check2 > 0) {
+            return false
+        }
+        if (check2 < 1) {
+            return true
+        }
+    }
     const [count, setCount] = useState(0)
 
     function plus() {
@@ -24,27 +46,26 @@ function App() {
                     <Display count={count}/>
                     <div className="forButton">
                         <Button1
-                            plus={plus}
-                            count={count}
+                            titleForButton="plus one"
+                            callBackForOnClick={plus}
+                            forDisabled={checkButton1}
                         /></div>
                     <div className="forButton">
-                        <Button2
-                            reset={reset}
-                            count={count}
-                        /></div>
+                        <Button1
+                            titleForButton="reset"
+                            callBackForOnClick={reset}
+                            forDisabled={checkButton2}
+                        />
+                    </div>
                 </div>
                 <div className="block2">
-            <Display count={count}/>
-            <div className="forButton">
-                <Button1
-                    plus={plus}
-                    count={count}
-                /></div>
-            <div className="forButton">
-                <Button2
-                    reset={reset}
-                    count={count}
-                /></div>
+                    <Display2/>
+                    <div className="forButton">
+                        <Button1
+                            titleForButton="plus one"
+                            callBackForOnClick={plus}
+                            forDisabled={checkButton1}
+                        /></div>
                 </div>
             </div>
         </div>
