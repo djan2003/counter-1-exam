@@ -3,6 +3,7 @@ import './App.css';
 import Display from "./components/display/display";
 import Button1 from "./components/button/Button";
 import Display2 from "./Display2/Display2";
+import {isNumber} from "util";
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
             return true
         }
     }
-    const [count, setCount] = useState(0)
+    let [count, setCount] = useState(0)
 
     function plus() {
         setCount(count + 1)
@@ -37,8 +38,8 @@ function App() {
         setCount(count * 0)
 
     }
-
     return (
+
 
         <div className="App">
             <div className="parent">
@@ -59,7 +60,9 @@ function App() {
                     </div>
                 </div>
                 <div className="block2">
-                    <Display2/>
+                    <Display2
+                        changeCount={setCount}
+                    />
                     <div className="forButton">
                         <Button1
                             titleForButton="plus one"
